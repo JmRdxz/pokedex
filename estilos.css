@@ -1,0 +1,59 @@
+/* Uso de variables en CSS */
+
+:root {
+    --color_primario: #ffffff;
+    --size: 200px;
+}
+
+h1 {
+    color: var(--color_primario);
+    text-align: center;
+    font-size: 50px;
+    font-style: italic;
+    background-color: rgba(19, 79, 138, 0.354);
+    border-radius: 10px;
+}
+
+img {
+    width: var(--size);
+    height: var(--size);
+}
+
+#container-grid {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fill, 20%);
+    justify-content: center;
+}
+
+#item-grid {
+    background-color: rgb(250, 238, 159);
+    text-align: center;
+    border-radius: 10px;
+}
+#titulo {
+    font-size: 20px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    /*background-color:black;
+    color: white;*/
+    background: #2A7B9B;
+    background: linear-gradient(0deg, rgba(42, 123, 155, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(242, 255, 232, 1) 0%, rgba(133, 198, 255, 1) 100%);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: bold;
+
+}
+#cabezera {
+    display:grid;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#container-grid {
+    display:grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fill, 20%);
+    justify-content: center;
+}

@@ -1,57 +1,345 @@
 /* Uso de variables en CSS */
 
 :root {
-    --color_primario: #ffffff;
-    --size: 200px;
+    --color-primario: #ffffff;
+    --size: 160px;
+    --bg-card: #d1e1ff;
 }
 
-h1 {
-    color: var(--color_primario);
-    text-align: center;
-    font-size: 50px;
-    font-style: italic;
-    background-color: rgba(19, 79, 138, 0.354);
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Banner Superior con GIF de Fondo */
+.header-banner {
+    width: 100%;
+    height: 220px;
+    background: url('https://cdn.dribbble.com/userupload/42100031/file/original-014456a61fa41abe2e816dd466ed4296.gif') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header-banner h1 {
+    color: var(--color-primario);
+    font-size: 55px;
+    font-weight: 800;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /*background-color: rgba(255, 255, 255, 0.938);*/
+    padding: 10px 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(4px);
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Sección de Filtros y Buscador */
+.filtros-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.buscador-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.buscador-box input {
+    width: 320px;
+    padding: 12px 18px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.buscador-box input:focus {
+    border-color: #3b4252;
+}
+
+.buscador-box button {
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #f2b1ff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.buscador-box button:hover {
+    background-color: #ff7cae;
+}
+
+/* Filtros por Tipos, Generación y Región */
+.controles-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.tipos-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 800px;
+}
+
+.btn-tipo {
+    padding: 6px 14px;
+    font-size: 13px;
+    border: none;
+    border-radius: 15px;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-weight: 600;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-tipo:hover, .btn-tipo.active {
+    background-color: #ff7aa7;
+    color: white;
+}
+
+.desplegables-box {
+    display: flex;
+    gap: 15px;
+}
+
+.select-group {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.select-group select {
+    padding: 8px 12px;
     border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    margin-top: 4px;
+}
+
+/* Grilla de Pokémon */
+#container-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    justify-content: center;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+#item-grid {
+    background-color: var(--bg-card);
+    border-radius: 15px;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Efecto al pasar el puntero */
+#item-grid:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    z-index: 5;
+}
+
+#item-grid p {
+    margin: 10px 0 0 0;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 16px;
 }
 
 img {
     width: var(--size);
     height: var(--size);
+    object-fit: contain;
 }
 
-#container-grid {
-    display: grid;
-    gap: 5px;
-    grid-template-columns: repeat(auto-fill, 20%);
-    justify-content: center;
-}
-
-#item-grid {
-    background-color: rgb(250, 238, 159);
+/* Mensaje de Carga */
+.mensaje-carga {
     text-align: center;
-    border-radius: 10px;
-}
-#titulo {
-    font-size: 20px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    /*background-color:black;
-    color: white;*/
-    background: #2A7B9B;
-    background: linear-gradient(0deg, rgba(42, 123, 155, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(242, 255, 232, 1) 0%, rgba(133, 198, 255, 1) 100%);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    font-size: 18px;
     font-weight: bold;
-
+    color: #555;
+    padding: 20px 0;
 }
-#cabezera {
-    display:grid;
+
+.oculto {
+    display: none !important;
+}
+
+/* Ventana Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
     justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    align-items: center;
+    z-index: 1000;
 }
 
-#container-grid {
+.modal-contenido {
+    background-color: white;
+    width: 90%;
+    max-width: 450px;
+    max-height: 85vh;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    animation: popup 0.3s ease-out;
+}
+
+@keyframes popup {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.modal-header-img {
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-header-img img {
+    width: 220px;
+    height: 220px;
+}
+
+.modal-body-info {
+    padding: 20px;
+    overflow-y: auto; /* Permite desplazar la información abajo */
+}
+
+.modal-body-info h2 {
+    margin: 0 0 10px 0;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.modal-tipos {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.badge-tipo {
+    padding: 4px 12px;
+    border-radius: 12px;
+    background-color: #3b5998;
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.modal-detalles p {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.modal-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4px;
+}
+
+/* Colores dinámicos para las tarjetas según el tipo principal */
+.bg-grass    { background-color: #a7f3d0 !important; }
+.bg-fire     { background-color: #fecaca !important; }
+.bg-water    { background-color: #bfdbfe !important; }
+.bg-bug      { background-color: #d9f99d !important; }
+.bg-normal   { background-color: #e5e7eb !important; }
+.bg-poison   { background-color: #e9d5ff !important; }
+.bg-electric { background-color: #fef08a !important; }
+.bg-ground   { background-color: #fed7aa !important; }
+.bg-fairy    { background-color: #fbcfe8 !important; }
+.bg-fighting { background-color: #fca5a5 !important; }
+.bg-psychic  { background-color: #f472b6 !important; }
+.bg-rock     { background-color: #d6d3d1 !important; }
+.bg-ghost    { background-color: #ddd6fe !important; }
+.bg-ice      { background-color: #cff4fc !important; }
+.bg-dragon   { background-color: #c084fc !important; }
+.bg-dark     { background-color: #9ca3af !important; color: white; }
+.bg-steel    { background-color: #cbd5e1 !important; }
+.bg-flying   { background-color: #bae6fd !important; }
+
+/* Badges/Etiquetas de tipos debajo del nombre */
+.card-tipos {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+}
+
+.card-tipo-tag {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.15);
+    color: #222;
+}
     display:grid;
     gap: 5px;
     grid-template-columns: repeat(auto-fill, 20%);

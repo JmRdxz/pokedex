@@ -1,16 +1,128 @@
-<html>
-    <head>
-        <title>.: Web :.</title>
-        <link href="estilos.css" rel="stylesheet"></link>
-        <script src="script.js"></script>
-    </head>
-    <body>
-<div id="cabezera">
-    <img id="pokemon-logo" src="images/pokemon-logo.png">
-</div>
-         <!--GRID-->
-          <div id="contenido">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Pokedex</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
 
-          </div>
-    </body>
+    <!-- Banner superior (Título y Fondo GIF) -->
+    <header class="header-banner">
+        <h1>MI POKEDEX</h1>
+    </header>
+
+    <!-- Sección de búsqueda y filtros -->
+    <section class="filtros-container">
+        
+        <!-- Buscador -->
+        <div class="buscador-box">
+            <input type="text" id="input-busqueda" placeholder="Buscar...">
+            <button id="btn-buscar">Buscar</button>
+        </div>
+
+        <!-- Filtros de Elementos (Tipos), Generación y Región -->
+        <div class="controles-filtros">
+            
+            <!-- Tipos / Elementos -->
+            <div class="tipos-box" id="tipos-box">
+                <button class="btn-tipo active" data-type="todos">Todos los elementos</button>
+                <button class="btn-tipo" data-type="fire">Fuego</button>
+                <button class="btn-tipo" data-type="water">Agua</button>
+                <button class="btn-tipo" data-type="grass">Planta</button>
+                <button class="btn-tipo" data-type="electric">Eléctrico</button>
+                <button class="btn-tipo" data-type="ice">Hielo</button>
+                <button class="btn-tipo" data-type="fighting">Lucha</button>
+                <button class="btn-tipo" data-type="poison">Veneno</button>
+                <button class="btn-tipo" data-type="ground">Tierra</button>
+                <button class="btn-tipo" data-type="flying">Volador</button>
+                <button class="btn-tipo" data-type="psychic">Psíquico</button>
+                <button class="btn-tipo" data-type="bug">Bicho</button>
+                <button class="btn-tipo" data-type="rock">Roca</button>
+                <button class="btn-tipo" data-type="ghost">Fantasma</button>
+                <button class="btn-tipo" data-type="dragon">Dragón</button>
+                <button class="btn-tipo" data-type="steel">Acero</button>
+                <button class="btn-tipo" data-type="dark">Siniestro</button>
+                <button class="btn-tipo" data-type="fairy">Hada</button>
+            </div>
+
+            <!-- Desplegables de Generación y Región -->
+            <div class="desplegables-box">
+                <div class="select-group">
+                    <label for="select-generacion">Generación:</label>
+                    <select id="select-generacion">
+                        <option value="todas">Todas las generaciones</option>
+                        <option value="1">Generación 1</option>
+                        <option value="2">Generación 2</option>
+                        <option value="3">Generación 3</option>
+                        <option value="4">Generación 4</option>
+                        <option value="5">Generación 5</option>
+                        <option value="6">Generación 6</option>
+                        <option value="7">Generación 7</option>
+                        <option value="8">Generación 8</option>
+                        <option value="9">Generación 9</option>
+                    </select>
+                </div>
+
+                <div class="select-group">
+                    <label for="select-region">Región:</label>
+                    <select id="select-region">
+                        <option value="todas">Todas las regiones</option>
+                        <option value="kanto">Kanto</option>
+                        <option value="johto">Johto</option>
+                        <option value="hoenn">Hoenn</option>
+                        <option value="sinnoh">Sinnoh</option>
+                        <option value="unova">Unova / Teselia</option>
+                        <option value="kalos">Kalos</option>
+                        <option value="alola">Alola</option>
+                        <option value="galar">Galar</option>
+                        <option value="paldea">Paldea</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contenedor Principal de la Grilla de Pokémon -->
+    <main id="contenido">
+        <div id="container-grid"></div>
+    </main>
+
+    <!-- Indicador de Carga -->
+    <div id="mensaje-carga" class="mensaje-carga oculto">
+        <p>Cargando pokemon...</p>
+    </div>
+
+    <!-- Ventana Modal (Información Detallada) -->
+    <div id="modal-pokemon" class="modal oculto">
+        <div class="modal-contenido">
+            <span id="cerrar-modal" class="cerrar-modal">&times;</span>
+            
+            <!-- Imagen Grande Superior -->
+            <div class="modal-header-img">
+                <img id="modal-img" src="" alt="Pokemon">
+            </div>
+            
+            <!-- Info Desplazable -->
+            <div class="modal-body-info">
+                <h2 id="modal-nombre"></h2>
+                <div id="modal-tipos" class="modal-tipos"></div>
+                
+                <div class="modal-detalles">
+                    <p><strong>ID:</strong> #<span id="modal-id"></span></p>
+                    <p><strong>Altura:</strong> <span id="modal-altura"></span> m</p>
+                    <p><strong>Peso:</strong> <span id="modal-peso"></span> kg</p>
+                    <p><strong>Habilidades:</strong> <span id="modal-habilidades"></span></p>
+                </div>
+
+                <h3>Estadísticas</h3>
+                <div id="modal-stats" class="modal-stats"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
